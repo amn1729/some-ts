@@ -1,5 +1,6 @@
 # Some
-Some class to preserve Types while working with any/unknown
+Some class to preserve Types while working with any/unknown  
+upstream url: https://codeberg.org/anhsirk0/some-ts
 
 ### Usage
 Array
