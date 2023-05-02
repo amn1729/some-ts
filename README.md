@@ -23,6 +23,14 @@ Some.Number(user?.age);     // => 20 or 0
 Some.Number(user?.age, 18); // => 20 or 18
 ```
 
+Boolean
+```typescript
+Some.Boolean();                     // => false
+Some.Boolean(user?.isActive, true); // => false or true
+Some.Boolean(true.toString());      // => true
+Some.Boolean(false.toString());     // => false
+```
+
 Object
 ```typescript
 Some.Object();                         // => {}

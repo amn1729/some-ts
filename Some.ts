@@ -1,8 +1,10 @@
-// Better version of ||
-// Preserves Types
+// https://codeberg.org/anhsirk0/some-ts
+
+// Better version of || (it Preserves Types runtime)
 // Usage: Some.Array(user?.data) -> [name, email, ...] or []
 // Usage: Some.Array(user?.numbers, [1, 2, 3]) -> [n1, n2, ...] or [1, 2, 3]
 // Usage: Some.String(user?.name) -> "user name" or ""
+
 export class Some {
   static Array<T>(arr?: Array<T> | any, defaultValue?: Array<T>): Array<T> {
     if (Array.isArray(arr)) return arr;
@@ -22,10 +24,17 @@ export class Some {
     return 0;
   }
 
+  static Boolean(b?: any, defaultValue?: boolean): boolean {
+    if (typeof b === "boolean") return b;
+    if (b === true.toString()) return true;
+    if (b === false.toString()) return false;
+    if (defaultValue !== undefined) return defaultValue;
+    return Boolean(b);
+  }
+
   static Object(obj?: any, defaultValue?: object): object {
     if (typeof obj === "object" && !Array.isArray(obj) && obj !== null)
       return obj;
     return defaultValue || {};
   }
-  // No need to add Boolean here
 }
